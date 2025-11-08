@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>create.html</title>
+        <link rel="stylesheet" type="text/css" href="">
+        <script type="text/javascript" src=""></script>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
+    <body>
+        <header>
+            <h1>国内滞在公務員追加</h1>
+        </header>
+        <section>
+            <h4>滞在公務員認証追加及び閲覧</h4>
+            
+            <form action="/my_app/create/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            
+                <label for="namrte">名前</label>
+                <!-- <input type="text" name="name"> -->
+                {{ form.name }}
+                <div style="color: rgb(255, 0, 0);">{{ form.name.errors }}</div>       
+                
+                <label for="nenthei">年齢</label>
+                <!-- <input type="number" name="age"> -->
+                {{ form.age }}
+                <div style="color: rgb(255, 0, 0);">{{ form.age.errors }}</div>
+                
+                <input type="submit" value="送信">
+            </form>
+        </section>
+
+        <footer>
+
+        </footer>
+    </body>
+</html>

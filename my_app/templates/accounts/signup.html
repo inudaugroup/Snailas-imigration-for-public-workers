@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>アカウント登録/register</title>
+
+    </head>
+    <body>
+        <h2>アカウント登録/register</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <label>ユーザー名/Username</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <p class="error">{{ form.username.errors.0 }}</p>
+            {% endif %}
+
+            <label>メールアドレス/email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <p class="error">{{ form.email.errors.0 }}</p>
+            {% endif %}
+            
+
+           
+            <label>パスワード/password</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <p class="error">{{ form.password1.errors.0 }}</p>
+            {% endif %}
+
+            
+            <label>パスワード</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <p class="error">{{ form.password2.errors.0 }}</p>
+            {% endif %}
+
+            <input id="submit" type="submit" value="登録">
+        </form>
+        <div class="login-link">
+            <p>すでにアカウントをお持ちですか？</p>
+                <a href="/my_app/accounts/login">ログイン</a>
+        </div>
+    </body>
+    <style>
+        html {
+           background-image: url(/STATIC/my_app/aaa.png);
+        }
+        body {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background-color: #ffffffb1;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#submit {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e13737;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#submit:hover {
+    background-color: #a81818;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+.login-link {
+    text-align: center;
+    margin-top: 5px;
+}
+    </style>
+</html>
